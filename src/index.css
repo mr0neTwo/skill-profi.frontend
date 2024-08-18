@@ -1,13 +1,102 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --background-color: #171821;
+  --dark-grey: #21222D;
+
+  --primary-font-color: #FFFFFF;
+  --secondary-font-color: #87888C;
+
+  --green: #A9DFD8;
+  --pink: #F2C8ED;
+  --orange: #FCB859;
+  --blue: #28AEF3;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--secondary-font-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: #000000;
+}
+
+main {
+  display: flex;
+  flex-grow: 1;
+}
+
+.temporary-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  padding: 16px 24px;
+  color: var(--secondary-font-color);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.company-logo {
+  width: 200px;
+}
+
+.admin-container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.side-bar-container {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 0;
+  height: 100%;
+  border-right: 2px solid #2C2D33;
+  gap: 10px;
+}
+
+.client-navigation-panel-container{
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.admin-link-active{
+  background-color: var(--green);
+  color: var(--background-color)
+}
+
+.client-link-active {
+  background-color: var(--green);
+  color: var(--background-color);
+  border-radius: 4px;
+}
+
+.client-header {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2px solid #2C2D33;
+}
+
+.client-header-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
