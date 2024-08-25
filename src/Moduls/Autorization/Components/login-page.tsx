@@ -1,5 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import {useLocation, useNavigate} from "react-router-dom";
+import {Input} from "../../../Common/Components/input";
+import {Button} from "../../../Common/Components/button";
 
 interface LocationState {
     from: {
@@ -9,30 +11,46 @@ interface LocationState {
 
 const LoginPage: React.FC = () => {
 
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
     const navigate = useNavigate();
     const location = useLocation();
 
     const state = location.state as LocationState | undefined;
     const fromPage = state?.from?.pathname || '/admin';
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault()
-        const form = event.target as HTMLFormElement
-        const user = form.username.value // логика логина
+    const handleSubmit = () => {
+
+         console.log([email, password])
 
         navigate(fromPage, {replace: true})
     }
 
     return (
-        <div>
-            <h1>Login page</h1>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Name:
-                    <input name='username'/>
-                </label>
-                <button type='submit'>Login</button>
-            </form>
+        <div className='flex justify-center items-center h-full'>
+            <div className='flex flex-col gap-4'>
+                <Input
+                    label='Email'
+                    onChange={email => setEmail(email)}
+                    value={email}
+                    required={true}
+                    limit={30}
+                />
+                <Input
+                    label='Пароль'
+                    onChange={password => setPassword(password)}
+                    value={password}
+                    limit={30}
+                    required={true}
+                    password={true}
+                />
+                <Button
+                    type='primary'
+                    text='Войти'
+                    onClick={handleSubmit}
+                />
+            </div>
         </div>
     )
 }

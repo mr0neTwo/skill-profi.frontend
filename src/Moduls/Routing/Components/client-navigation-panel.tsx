@@ -10,6 +10,7 @@ const ClientNavigationPanel: React.FC = ()=> {
             <ClientLink to='/products' text='Продукты'/>
             <ClientLink to='/blog' text='Блог'/>
             <ClientLink to='/contacts' text='Контакты'/>
+            <ClientLink to='/login' text='Войти'/>
         </nav>
     )
 }

@@ -11,7 +11,7 @@ const ClientLayout : React.FC = () => {
                 <div className='client-header-content-container'>
                     <ClientNavigationPanel/>
                     <div className='quote-container'>
-                        <h1>Расширяем возможности</h1>
+                        <blockquote>"Расширяем возможности"</blockquote>
                     </div>
                 </div>
             </header>

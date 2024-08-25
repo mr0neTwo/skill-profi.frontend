@@ -8,6 +8,9 @@ import {AdminLayout} from "./Components/admin-layout";
 import {ClientLayout} from "./Components/client-layout";
 import {LoginPage} from "../Autorization/Components/login-page";
 import {UsersPage} from "../Users/Components/UsersPage";
+import {MainPage} from "../Main/main-page";
+import {ClientMessagePage} from "../ClientMessagess/Components/client-message-page";
+import {clientMessagesLoader} from "../ClientMessagess/client-message-prefetching";
 
 const routes = [
     {
@@ -16,7 +19,7 @@ const routes = [
         children: [
             {
                 index: true,
-                element: <TemporaryPage text="Здесь будет домашняя страница" />
+                element: <MainPage />
             }, {
                 path: 'services',
                 element: <TemporaryPage text="Здесь будут услуги" />
@@ -38,10 +41,11 @@ const routes = [
         children: [
             {
                 index: true,
-                element: (<TemporaryPage text="Здесь будут обращения" />)
+                element: (<ClientMessagePage />),
+                loader : clientMessagesLoader
             }, {
                 path: 'main',
-                element: <TemporaryPage text="Здесь будет главная страница" />
+                element: <MainPage />
             }, {
                 path: 'services',
                 element: <TemporaryPage text="Здесь будут услуги" />
@@ -61,7 +65,7 @@ const routes = [
             }
         ],
     }, {
-        path: 'login',
+        path: '/login',
         element: <LoginPage />
     }
 ];
