@@ -1,8 +1,10 @@
-import React, {forwardRef, useImperativeHandle, useMemo, useState} from "react";
+import React, {forwardRef, useImperativeHandle, useMemo, useRef, useState} from "react";
 
 interface IInput {
     label?: string | undefined
     onChange: (value: string) => void;
+    onEnterPress?: () => void;
+    onBlur?: () => void;
     value: string;
     required?: boolean
     password?: boolean
@@ -10,20 +12,24 @@ interface IInput {
 }
 
 export interface IInputRef {
-    validate: () => boolean;
+    validate: () => boolean
+    focus: () => void
 }
 
 const Input = forwardRef<IInputRef, IInput>((props, ref) => {
 
     const {
         label,
-        onChange, value,
+        onChange,
+        value,
+        onEnterPress,
+        onBlur,
         required = false,
         password = false,
         limit } = props
 
-    const [focused, setFocused] = useState(false)
-    const [isWrong, setIsWrong] = useState(false)
+    const [isWrong, setIsWrong] = useState<boolean>(false)
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const validate = () => {
         const isInvalid = required && value.trim().length === 0;
@@ -31,13 +37,21 @@ const Input = forwardRef<IInputRef, IInput>((props, ref) => {
         return !isInvalid;
     };
 
+    const focus = () => {
+        inputRef.current?.focus()
+    }
+
     useImperativeHandle(ref, () => ({
         validate,
+        focus,
     }));
 
     const handleOnBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-        setFocused(false)
         validate()
+
+        if (onBlur) {
+            onBlur()
+        }
     }
 
     const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,22 +64,33 @@ const Input = forwardRef<IInputRef, IInput>((props, ref) => {
         onChange(value)
     }
 
-    const classes = useMemo(() => {
-        let className = 'input-container'
-        if (focused) className += ' input-container-focused'
-        if (isWrong) className += ' input-container-error'
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter' && onEnterPress) {
+            onEnterPress();
+        }
+    };
+
+    const inputClasses = useMemo(() => {
+        let className = 'w-full bg-background dark:bg-background-dark rounded py-2 px-4 text-lg' +
+            '  border-solid border-2 focus:outline-none focus:border-main dark:focus:border-main-dark'
+        if (isWrong) {
+            className += ' border-red dark:border-red-dark'
+        } else {
+            className += ' border-secondary dark:border-secondary-dark'
+        }
         return className
-    }, [focused, isWrong])
+    }, [isWrong])
 
     return (
-        <div className={classes}>
-            {label ? <label className='label'>{label}</label> : null}
+        <div className='flex flex-col px-0.5 w-full'>
+            {label ? <label className='p-1 text-lg font-bold'>{label}</label> : null}
             <input
-                className='input'
+                ref={inputRef}
+                className={inputClasses}
                 onChange={handleOnChange}
                 value={value}
-                onFocus={() => setFocused(true)}
                 onBlur={handleOnBlur}
+                onKeyDown={handleKeyDown}
                 type={password ? 'password' : ''}
             />
         </div>

@@ -24,7 +24,7 @@ const SelectOption = <TOption extends IOption>( props: ISelectOption<TOption>) =
         noChoose,
     } = props
     
-    const [listVisible, setListVisible] = useState(false)
+    const [listVisible, setListVisible] = useState<boolean>(false)
 
     const elementRef = useRef<HTMLDivElement>(null)
 
@@ -58,22 +58,22 @@ const SelectOption = <TOption extends IOption>( props: ISelectOption<TOption>) =
             ref={elementRef}
             className='relative min-w-80 rounded-md'
         >
-            <div className='p-1.5'>{title}</div>
+            <div className='p-1.5 font-bold'>{title}</div>
 
             <div
-                className={listVisible ? 'rounded-t-md border border-lightgrey bg-darkgrey' : 'rounded-md border border-lightgrey bg-darkgrey'}
+                className={`${listVisible ? 'rounded-t-md' : 'rounded-md'} border border-secondary bg-background dark:border-secondary-dark dark:bg-background-dark`}
                 onClick={() => setListVisible(!listVisible)}
             >
                 <div className='py-1.5 px-4'>{getTitle}</div>
             </div>
 
             {listVisible ?
-                <div className='absolute flex flex-col bg-darkgrey w-full border border-lightgrey rounded-b-md border-t-0 overflow-hidden'>
+                <div className='absolute flex flex-col bg-background w-full border border-secondary rounded-b-md border-t-0 overflow-hidden dark:bg-background-dark dark:border-secondary-dark'>
                         {options.map(element => {
                             return (
                                 <div
                                     key={element.id}
-                                    className='py-1.5 px-4 cursor-pointer hover:bg-hover'
+                                    className='py-1.5 px-4 cursor-pointer hover:bg-green30 dark:hover:bg-green30-dark'
                                     onClick={() => handleClick(element)}
                                 >
                                     {element.title}

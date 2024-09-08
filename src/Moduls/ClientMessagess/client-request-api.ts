@@ -1,29 +1,26 @@
 import {baseApi} from "../../Common/baseApi";
 import {Id} from "../../Common/common-types";
 import {
-    ClientRequestDtoSchema,
-    CreateRequestDtoSchema,
+    CreateRequestDtoSchema, GetClientRequestListResponseSchema,
     UpdateMessageDtoSchema
 } from "./client-request-validation-shemas";
 import {
-    ClientMessage,
-    CreateClientMessageDto, GetClientMessageListDto,
+    CreateClientMessageDto, GetClientMessageListDto, GetClientMessagesListResponse,
     UpdateClientMessageDto
 } from "./client-request-types";
 
 
-// noinspection TypeScriptValidateJSTypes
 export const clientRequestApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({
 
-        getClientMessages: builder.query<ClientMessage[], GetClientMessageListDto>({
+        getClientMessages: builder.query<GetClientMessagesListResponse, GetClientMessageListDto>({
             query: (dto) => {
-                const params = new URLSearchParams(dto as any).toString();
-                return `/clientRequest/getList?${params}`;
+                const params = new URLSearchParams(dto as any).toString()
+                return `/clientRequest/getList?${params}`
             },
             providesTags: ['ClientMessage'],
             transformResponse: (response: unknown) => {
-                const result = ClientRequestDtoSchema.array().safeParse(response);
+                const result = GetClientRequestListResponseSchema.safeParse(response);
 
                 if (!result.success) {
                     console.error("Validation error:", result.error);
@@ -54,10 +51,12 @@ export const clientRequestApi = baseApi.injectEndpoints({
         updateClientMessage: builder.mutation<void, UpdateClientMessageDto>({
             query: (updatedClientMessage) => {
                 const validation = UpdateMessageDtoSchema.safeParse(updatedClientMessage);
+
                 if (!validation.success) {
                     console.error("Validation error:", validation.error);
                     throw new Error('Invalid data format');
                 }
+
                 return {
                     url: '/clientRequest/update',
                     method: 'PUT',

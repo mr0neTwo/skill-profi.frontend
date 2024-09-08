@@ -1,11 +1,15 @@
 import {store} from "../../Redux/store";
-import {clientRequestApi} from "./client-request-api";
 import {LoaderFunctionArgs} from "react-router-dom";
-import {getEndOfDayTimestamp} from "./Components/timestamp-utils";
+
+import {clientRequestApi} from "./client-request-api";
+import {selectClientMessagesFilter} from "./client-message-slice";
 
 
 const clientMessagesLoader = ({request, params}: LoaderFunctionArgs) => {
-    store.dispatch(clientRequestApi.util.prefetch('getClientMessages', {start: 0, end: getEndOfDayTimestamp()}, {}))
+
+    const filter = selectClientMessagesFilter(store.getState());
+
+    store.dispatch(clientRequestApi.util.prefetch('getClientMessages', filter, {}))
 
     return null
 }

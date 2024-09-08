@@ -6,9 +6,9 @@ import {useCreateClientMessageMutation} from "../ClientMessagess/client-request-
 
 const ClientRequestForms:React.FC = () => {
 
-    const [clientName, setClientName] = useState('')
-    const [clientEmail, setClientEmail] = useState('')
-    const [message, setMessage] = useState('')
+    const [clientName, setClientName] = useState<string>('')
+    const [clientEmail, setClientEmail] = useState<string>('')
+    const [message, setMessage] = useState<string>('')
 
     const nameRef = useRef<IInputRef>(null);
     const emailRef = useRef<IInputRef>(null);
@@ -40,8 +40,8 @@ const ClientRequestForms:React.FC = () => {
     }
 
     return (
-        <div className='column g-15'>
-            <h2>Оставить заявку или задать вопрос</h2>
+        <div className='flex flex-col gap-4 my-8'>
+            <div className='text-2xl'>Оставить заявку или задать вопрос</div>
             <Input
                 ref={nameRef}
                 label='Имя'
@@ -66,7 +66,7 @@ const ClientRequestForms:React.FC = () => {
                 required={true}
                 limit={600}
             />
-            <div className='row g-15'>
+            <div className='flex gap-4'>
                 <Button
                     type='primary'
                     text='Отправить'

@@ -1,4 +1,4 @@
-import React, {forwardRef, useImperativeHandle, useMemo, useState} from "react";
+import React, {forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState} from "react";
 import {IInputRef} from "./input";
 
 interface ITextArea {
@@ -13,8 +13,12 @@ const TextAria= forwardRef<IInputRef, ITextArea>( (props, ref) => {
 
     const { label, onChange, value, required = false, limit } = props
 
-    const [focused, setFocused] = useState(false)
-    const [isWrong, setIsWrong] = useState(false)
+    const [isWrong, setIsWrong] = useState<boolean>(false)
+    const inputRef = useRef<HTMLTextAreaElement>(null);
+
+    useEffect(() => {
+        adjustHeight()
+    }, [])
 
     const validate = () => {
         const isInvalid = required && value.trim().length === 0;
@@ -22,43 +26,60 @@ const TextAria= forwardRef<IInputRef, ITextArea>( (props, ref) => {
         return !isInvalid;
     };
 
+    const focus = () => {
+        inputRef.current?.focus()
+    }
+
     useImperativeHandle(ref, () => ({
         validate,
+        focus
     }));
 
-    const handleOnBlur = (event: React.FocusEvent<HTMLTextAreaElement>) => {
-        setFocused(false)
+    const adjustHeight = () => {
+        if (inputRef.current) {
+            inputRef.current.style.height = 'auto';
+            inputRef.current.style.height = `${inputRef.current.scrollHeight}px`;
+        }
+    };
+
+    const handleOnBlur = () => {
         validate()
     }
 
     const handleOnChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
 
-        let value = event.target.value
-        if(limit && value.length > limit){
-            value = value.slice(0, limit);
+        let inputValue = event.target.value;
+        if (limit && inputValue.length > limit) {
+            inputValue = inputValue.slice(0, limit);
         }
-
-        onChange(value)
+        onChange(inputValue);
+        adjustHeight();
     }
 
-    const classes = useMemo(() => {
-        let className = 'text-area-container'
-        if (focused) className += ' input-container-focused'
-        if (isWrong) className += ' input-container-error'
+
+    const textAreaClasses = useMemo(() => {
+        let className = 'bg-background dark:bg-background-dark rounded py-2 px-4 text-lg resize-none scrollbar-hide' +
+        '  border-solid border-2 focus:outline-none focus:border-main dark:focus:border-main-dark'
+        if (isWrong) {
+            className += ' border-red dark:border-red-dark'
+        } else {
+            className += ' border-secondary dark:border-secondary-dark'
+        }
         return className
-    }, [focused, isWrong])
+    }, [isWrong])
 
     return (
-        <div className={classes}>
-            {label ? <label className='label'>{label}</label> : null}
+        <div className='flex flex-col px-0.5'>
+            {label ? <label className='p-1 text-lg font-bold'>{label}</label> : null}
             <textarea
-                className='input'
+                ref={inputRef}
+                className={textAreaClasses}
                 onChange={handleOnChange}
                 value={value}
-                onFocus={() => setFocused(true)}
                 onBlur={handleOnBlur}
+                rows={1}
             />
-            {limit && <div className='text-area-counter'>{`${value.length}/${limit}`}</div>}
+            {limit && <div className='self-end'>{`${value.length}/${limit}`}</div>}
         </div>
     )
 })

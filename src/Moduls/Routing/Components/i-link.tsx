@@ -1,4 +1,7 @@
 export interface ILink {
     to: string
-    text: string
+    dataKey: string
+    rootPathLength : number
+    orientation: 'horizontal' | 'vertical'
+    editable?: boolean
 }

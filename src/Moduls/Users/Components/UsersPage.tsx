@@ -8,9 +8,9 @@ const UsersPage : React.FC = () => {
     const [updateUser] = useUpdateUserMutation();
     const [deleteUser] = useDeleteUserMutation();
 
-    const [newUserName, setNewUserName] = useState('');
-    const [newUserEmail, setNewUserEmail] = useState('');
-    const [newUserPassword, setNewUserPassword] = useState('');
+    const [newUserName, setNewUserName] = useState<string>('');
+    const [newUserEmail, setNewUserEmail] = useState<string>('');
+    const [newUserPassword, setNewUserPassword] = useState<string>('');
 
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>Error loading users</div>;

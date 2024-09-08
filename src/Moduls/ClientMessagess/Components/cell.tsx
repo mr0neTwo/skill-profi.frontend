@@ -7,7 +7,7 @@ export interface ICell {
 
 const Cell: React.FC<ICell> = ({children, className}) => {
     return (
-        <td className={`py-1.5 px-5 h-8 ${className ?? ''}`}>{children}</td>
+        <td className={`py-3 px-5 h-8 ${className ?? ''}`}>{children}</td>
     )
 }
 

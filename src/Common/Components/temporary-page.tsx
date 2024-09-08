@@ -6,7 +6,7 @@ interface TemporaryPageProps {
 
 const TemporaryPage : React.FC<TemporaryPageProps> = ({text}) => {
     return (
-        <div className="temporary-page-container">
+        <div className="flex justify-center items-center grow h-full w-full">
             <h3>{text}</h3>
         </div>
     )

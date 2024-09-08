@@ -1,6 +1,6 @@
 import {store} from "../Redux/store";
 import {asyncThunkCreator, buildCreateSlice, createAsyncThunk, ThunkAction, UnknownAction} from "@reduxjs/toolkit";
-import {extraArgument} from "./extraArgument";
+import {extraArgument} from "./extra-argument";
 import {useDispatch, useSelector, useStore} from "react-redux";
 
 export type AppState = ReturnType<typeof store.getState>

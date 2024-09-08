@@ -1,4 +1,5 @@
 import { z } from 'zod';
+
 import {ClientMessageStatus} from "./client-request-types";
 
 export const ClientRequestDtoSchema = z.object({
@@ -19,4 +20,11 @@ export const CreateRequestDtoSchema = z.object({
 export const UpdateMessageDtoSchema = z.object({
     id: z.number(),
     status: z.nativeEnum(ClientMessageStatus)
+})
+
+export const GetClientRequestListResponseSchema = z.object({
+    pageNumber: z.number().int(),
+    count: z.number().int(),
+    totalPages: z.number().int(),
+    clientRequests: z.array(ClientRequestDtoSchema)
 })

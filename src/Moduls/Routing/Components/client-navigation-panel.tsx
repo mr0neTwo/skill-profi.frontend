@@ -1,16 +1,43 @@
 import React from "react";
 
-import {ClientLink} from "./client-link";
+import {AppLink} from "./app-link";
+import {clientLinks} from "../links-data";
+import {SiteItemKeys} from "../../../Common/site-item-keys";
+import {useSelector} from "react-redux";
+import {selectIsLogin} from "../../Autorization/auth-slice";
 
 const ClientNavigationPanel: React.FC = ()=> {
+
+    const isLogin = useSelector(selectIsLogin);
+
     return(
-        <nav className='client-navigation-panel-container'>
-            <ClientLink to='/' text='Главная'/>
-            <ClientLink to='/services' text='Услуги'/>
-            <ClientLink to='/products' text='Продукты'/>
-            <ClientLink to='/blog' text='Блог'/>
-            <ClientLink to='/contacts' text='Контакты'/>
-            <ClientLink to='/login' text='Войти'/>
+        <nav>
+            <div className='flex gap-5'>
+                {clientLinks.map(link => (
+                    <AppLink
+                        key={link.dataKey}
+                        to={link.path}
+                        dataKey={link.dataKey}
+                        orientation='horizontal'
+                        rootPathLength={1}
+                    />
+                ))}
+                {isLogin ?
+                    <AppLink
+                        to={'/admin'}
+                        dataKey={SiteItemKeys.Edit}
+                        rootPathLength={1}
+                        orientation='horizontal'
+                    />
+                    :
+                    <AppLink
+                        to={'/login'}
+                        dataKey={SiteItemKeys.Login}
+                        orientation='horizontal'
+                        rootPathLength={1}
+                    />
+                }
+            </div>
         </nav>
     )
 }
