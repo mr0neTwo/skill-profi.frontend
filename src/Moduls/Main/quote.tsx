@@ -3,9 +3,10 @@ import React, {useRef, useState} from "react";
 import {useGetSiteItemQuery, useUpdateSiteItemMutation} from "../SiteItem/site-item-api";
 
 import {IInputRef, Input} from "../../Common/Components/input";
-import {Skeleton} from "../ClientMessagess/Components/Skeleton";
+import {Skeleton} from "../../Common/Components/Skeleton";
 import {IconButton} from "../../Common/Components/icon-button";
 import {useIsAdminPath} from "../../Common/use-is-admin-path";
+import {FIELD_LIMITS} from "../../Common/field-limits";
 
 interface IMainQuote {
     className?: string;
@@ -46,7 +47,7 @@ const Quote: React.FC<IMainQuote> = ({className, dataKey}) => {
                     value={title}
                     onEnterPress={handelEnterPressed}
                     onBlur={() => setEditMode(false)}
-                    limit={100}
+                    limit={FIELD_LIMITS.SiteItemTitleMaxLength}
                 />
                 :
                 <div className={'text-4xl text-main dark:text-main-dark drop-shadow-md'}>{siteItem?.title}</div>

@@ -19,5 +19,18 @@ export const FIELD_LIMITS = {
     ProjectImageUrlMaxLength: 50,
     ProjectDescriptionMaxLength: 4096,
 
+    PostTitleMaxLength: 100,
+    PostImageUrlMaxLength: 50,
+    PostDescriptionMaxLength: 4096,
+
+    CompanyNameMaxLength: 50,
+    CompanyEmailMaxLength: 30,
+    CompanyPhoneMaxLength: 20,
+    CompanyAddressMaxLength: 100,
+    CompanyDirectorNameMaxLength: 50,
+
+    SocialMediaIconNameMaxLength: 20,
+    SocialMediaLinkMaxLength: 50,
+
     MaxItemsPerPage: 50
 }

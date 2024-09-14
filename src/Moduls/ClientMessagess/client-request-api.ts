@@ -1,13 +1,6 @@
 import {baseApi} from "../../Common/baseApi";
-import {Id} from "../../Common/common-types";
-import {
-    CreateRequestDtoSchema, GetClientRequestListResponseSchema,
-    UpdateMessageDtoSchema
-} from "./client-request-validation-shemas";
-import {
-    CreateClientMessageDto, GetClientMessageListDto, GetClientMessagesListResponse,
-    UpdateClientMessageDto
-} from "./client-request-types";
+import {CreateClientMessageDto, GetClientMessageListDto, GetClientMessagesListResponse, UpdateClientMessageDto} from "./client-request-types";
+import {CreateRequestDtoSchema, GetClientRequestListResponseSchema, UpdateMessageDtoSchema} from "./client-request-validation-shemas";
 
 
 export const clientRequestApi = baseApi.injectEndpoints({
@@ -31,7 +24,7 @@ export const clientRequestApi = baseApi.injectEndpoints({
             },
         }),
 
-        createClientMessage: builder.mutation<Id, CreateClientMessageDto>({
+        createClientMessage: builder.mutation<number, CreateClientMessageDto>({
             query: (newMessage) => {
 
                 const validation = CreateRequestDtoSchema.safeParse(newMessage);
@@ -66,7 +59,8 @@ export const clientRequestApi = baseApi.injectEndpoints({
             invalidatesTags: ['ClientMessage']
         }),
 
-    })
+    }),
+    overrideExisting: true
 })
 
 export const {

@@ -12,8 +12,6 @@ const Icon: React.FC<IIcon> = ({size = 24, icon, className}) => (
         width={size}
         height={size}
         viewBox="0 0 32 32"
-        // fill="none"
-        // xmlns="http://www.w3.org/2000/svg"
     >
         <path
             d={icon}

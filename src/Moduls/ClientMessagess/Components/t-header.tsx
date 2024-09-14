@@ -1,5 +1,6 @@
-import React from "react";
-import {ICell} from "./cell";
+import React from "react"
+
+import {ICell} from "./cell"
 
 const THeader: React.FC<ICell> = ({children, className}) => {
     return (

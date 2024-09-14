@@ -1,16 +1,17 @@
-import React, {useRef, useState} from "react";
-import {useLocation, useNavigate} from "react-router-dom";
+import React, {useRef, useState} from "react"
+import {useLocation, useNavigate} from "react-router-dom"
 
-import {IProjectFormState} from "./project-view";
-import {IInputRef, Input} from "../../../Common/Components/input";
-import {useCreateProjectMutation, useUpdateProjectMutation} from "../project-api";
-import {Spinner} from "../../../Common/Components/spinner";
-import {ErrorDataLoading} from "../../../Common/Components/error-data-loading";
-import {FIELD_LIMITS} from "../../../Common/field-limits";
-import {TextAria} from "../../../Common/Components/text-area";
-import {Button} from "../../../Common/Components/button";
-import {ImageForm} from "../../../Common/Components/image-form";
-import {baseUrl} from "../../../Common/baseApi";
+import {IProjectFormState} from "./project-view"
+import {useCreateProjectMutation, useUpdateProjectMutation} from "../project-api"
+import {FIELD_LIMITS} from "../../../Common/field-limits"
+import {baseUrl} from "../../../Common/baseApi"
+
+import {IInputRef, Input} from "../../../Common/Components/input"
+import {Spinner} from "../../../Common/Components/spinner"
+import {ErrorDataLoading} from "../../../Common/Components/error-data-loading"
+import {TextAria} from "../../../Common/Components/text-area"
+import {Button} from "../../../Common/Components/button"
+import {ImageForm} from "../../../Common/Components/image-form"
 
 const ProjectForm: React.FC = () => {
 

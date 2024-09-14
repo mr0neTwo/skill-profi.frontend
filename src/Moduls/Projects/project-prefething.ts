@@ -1,12 +1,11 @@
 import {store} from "../../Redux/store"
 
-import {selectProjectFilter} from "./project-slice"
-import {projectApi} from "./project-api"
+import {loadProjectsThunk} from "./load-projects-thunk";
 
 export const projectLoader = () => {
-    const filter = selectProjectFilter(store.getState())
 
-    store.dispatch(projectApi.util.prefetch('getProjectList', filter, {}))
+    store.dispatch(loadProjectsThunk())
 
     return null
 }
+

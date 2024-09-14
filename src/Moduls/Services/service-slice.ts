@@ -1,7 +1,7 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit"
+import {createSelector, createSlice, PayloadAction} from "@reduxjs/toolkit"
 
-import {AppState} from "../../Common/redux"
 import {GetServiceListDto} from "./service-types"
+import {rootReducer} from "../../Common/redux";
 
 interface IServiceState {
     pageSize: number,
@@ -24,13 +24,18 @@ const serviceSlice = createSlice({
         setPage: (state, action: PayloadAction<number>) => {
             state.pageNumber = action.payload
         }
+    },
+
+    selectors: {
+
+        selectServiceFilter: createSelector(
+            (state: IServiceState) => state.pageNumber,
+            (state: IServiceState) => state.pageSize,
+            (pageNumber, pageSize): GetServiceListDto => ({pageNumber, pageSize})
+        )
     }
-})
+}).injectInto(rootReducer)
+
 
 export const { setPage } = serviceSlice.actions;
-export default serviceSlice.reducer
-
-export const selectServiceFilter = (state: AppState): GetServiceListDto => ({
-    pageNumber : state.service.pageNumber,
-    pageSize: state.service.pageSize
-})
+export const { selectServiceFilter } = serviceSlice.selectors

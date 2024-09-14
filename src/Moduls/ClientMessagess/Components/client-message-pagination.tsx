@@ -1,8 +1,9 @@
-import React from "react";
+import React from "react"
 
-import {useAppDispatch, useAppSelector} from "../../../Common/redux";
-import {selectClientMessagePage, selectClientMessagesFilter, setPage} from "../client-message-slice";
-import {useGetClientMessagesQuery} from "../client-request-api";
+import {useAppDispatch, useAppSelector} from "../../../Common/redux"
+import {selectClientMessagePage, selectClientMessagesFilter, setPage} from "../client-message-slice"
+import {useGetClientMessagesQuery} from "../client-request-api"
+
 import {Pagination} from "../../../Common/Components/pagination";
 
 const ClientMessagePagination: React.FC = () => {

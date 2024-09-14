@@ -7,7 +7,7 @@ import {ILink} from "./i-link";
 import {IInputRef, Input} from "../../../Common/Components/input";
 import {IconButton} from "../../../Common/Components/icon-button";
 import {useIsAdminPath} from "../../../Common/use-is-admin-path";
-import {Skeleton} from "../../ClientMessagess/Components/Skeleton";
+import {Skeleton} from "../../../Common/Components/Skeleton";
 
 const AppLink: React.FC<ILink> = ({to, dataKey, rootPathLength, orientation, editable = false}) => {
 

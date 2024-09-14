@@ -2,7 +2,7 @@ import React from "react";
 
 interface ISkeleton {
     className?: string;
-    color?: 'green' | 'pink' | 'orange'  | 'blue' | 'lightgrey';
+    color?: 'green' | 'red' | 'orange'  | 'blue' | 'lightgrey';
     width?: number;
     height?: number;
 }

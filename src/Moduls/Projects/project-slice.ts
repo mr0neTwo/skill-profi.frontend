@@ -1,7 +1,7 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createSelector, createSlice, PayloadAction} from "@reduxjs/toolkit"
 
-import {AppState} from "../../Common/redux";
-import {GetProjectListDto} from "./project-types";
+import {GetProjectListDto} from "./project-types"
+import {rootReducer} from "../../Common/redux"
 
 interface IProjectState {
     pageSize: number,
@@ -24,13 +24,16 @@ const projectSlice = createSlice({
         setPage: (state, action: PayloadAction<number>) => {
             state.pageNumber = action.payload
         }
+    },
+    selectors: {
+
+        selectProjectFilter: createSelector(
+            (state: IProjectState) => state.pageNumber,
+            (state: IProjectState) => state.pageSize,
+            (pageNumber, pageSize): GetProjectListDto => ({pageNumber, pageSize})
+        )
     }
-})
+}).injectInto(rootReducer)
 
 export const { setPage } = projectSlice.actions;
-export default projectSlice.reducer
-
-export const selectProjectFilter = (state: AppState): GetProjectListDto => ({
-    pageNumber : state.project.pageNumber,
-    pageSize: state.project.pageSize
-})
+export const { selectProjectFilter } = projectSlice.selectors

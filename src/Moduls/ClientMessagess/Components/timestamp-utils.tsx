@@ -33,7 +33,7 @@ export const getStartOfWeekTimestamp = (): number => {
 
 export const getStartOfMonthTimestamp = (): number => {
     const now = new Date();
-    now.setDate(1); // Первый день месяца
+    now.setDate(1);
     now.setHours(0, 0, 0, 0);
     return Math.round(now.getTime() / 1000);
 }

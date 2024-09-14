@@ -1,7 +1,7 @@
-import {baseApi} from "../../Common/baseApi";
+import {baseApi} from "../../Common/baseApi"
 
-import {CreateProjectDto, GetProjectListDto, GetProjectListResponse, UpdateProjectDto} from "./project-types";
-import {CrateProjectDtoSchema, GetProjectListResponseSchema, UpdateProjectDtoSchema,} from "./project-validation-shemas";
+import {CreateProjectDto, GetProjectListDto, GetProjectListResponse, UpdateProjectDto} from "./project-types"
+import {CrateProjectDtoSchema, GetProjectListResponseSchema, UpdateProjectDtoSchema,} from "./project-validation-shemas"
 
 export const projectApi = baseApi.injectEndpoints({
 

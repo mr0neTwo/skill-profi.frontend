@@ -1,8 +1,8 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createSelector, createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 import {DateRange, GetClientMessageListDto} from "./client-request-types";
 import {getEndOfDayTimestamp} from "./Components/timestamp-utils";
-import {AppState} from "../../Common/redux";
+import {rootReducer} from "../../Common/redux";
 
 interface IClientMessageState {
     startTimestamp: number,
@@ -32,22 +32,24 @@ const clientMessagesSlice = createSlice({
         setPage: (state, action: PayloadAction<number>) => {
             state.pageNumber = action.payload
         }
+    },
+
+    selectors: {
+
+        selectClientMessagePage: (state): number =>  state.pageNumber,
+
+        selectClientMessagesFilter: createSelector(
+            (state: IClientMessageState) => state.startTimestamp,
+            (state: IClientMessageState) => state.endTimeStamp,
+            (state: IClientMessageState) => state.pageNumber,
+            (state: IClientMessageState) => state.pageSize,
+            (startTimestamp, endTimeStamp, pageNumber, pageSize) : GetClientMessageListDto => ({
+                startTimestamp, endTimeStamp, pageNumber, pageSize
+            })
+        )
     }
-})
+}).injectInto(rootReducer)
 
 export const { setDateRange, setPage } = clientMessagesSlice.actions
-export default clientMessagesSlice.reducer
+export const { selectClientMessagePage, selectClientMessagesFilter } = clientMessagesSlice.selectors
 
-export const selectClientMessagesFilter = (state: AppState): GetClientMessageListDto => ({
-    startTimestamp: state.clientMessage.startTimestamp,
-    endTimeStamp: state.clientMessage.endTimeStamp,
-    pageNumber: state.clientMessage.pageNumber,
-    pageSize: state.clientMessage.pageSize
-})
-
-export const selectClientMessagePage = (state: AppState): number => state.clientMessage.pageNumber
-
-export const selectDateRange = (state: IClientMessageState): DateRange => ({
-    startTimestamp: state.startTimestamp,
-    endTimeStamp: state.endTimeStamp
-})

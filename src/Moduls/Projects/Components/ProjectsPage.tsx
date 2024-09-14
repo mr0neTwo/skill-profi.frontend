@@ -1,17 +1,17 @@
 import React from "react"
-import {useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom"
 
-import {useGetProjectListQuery} from "../project-api"
-import {setPage} from "../project-slice";
 import {useAppDispatch, useAppSelector} from "../../../Common/redux"
+import {useIsAdminPath} from "../../../Common/use-is-admin-path"
+import {useGetProjectListQuery} from "../project-api"
+import {setPage} from "../project-slice"
 import {selectProjectFilter} from "../project-slice"
-import {useIsAdminPath} from "../../../Common/use-is-admin-path";
 
+import {IProjectFormState, ProjectView} from "./project-view"
 import {Spinner} from "../../../Common/Components/spinner"
 import {ErrorDataLoading} from "../../../Common/Components/error-data-loading"
-import {IProjectFormState, ProjectView} from "./project-view";
-import {Pagination} from "../../../Common/Components/pagination";
-import {Button} from "../../../Common/Components/button";
+import {Pagination} from "../../../Common/Components/pagination"
+import {Button} from "../../../Common/Components/button"
 
 const ProjectsPage:React.FC = () => {
 

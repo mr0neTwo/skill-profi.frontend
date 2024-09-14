@@ -13,6 +13,7 @@ import {IconButton} from "../../../Common/Components/icon-button";
 import {Button} from "../../../Common/Components/button";
 import {useIsAdminPath} from "../../../Common/use-is-admin-path";
 import {Service} from "../service-types";
+import {skipToken} from "@reduxjs/toolkit/query";
 
 export interface IServiceFormsState {
     editMode: boolean;
@@ -25,7 +26,7 @@ const ServicesPage: React.FC = () => {
     const navigate = useNavigate();
     const filter = useAppSelector(selectServiceFilter)
 
-    const {data: response, isLoading, isError } = useGetServiceListQuery(filter)
+    const {data: response, isLoading, isError } = useGetServiceListQuery(filter ?? skipToken)
     const [ deleteService ] = useDeleteServiceMutation()
 
     const isAdmin = useIsAdminPath()

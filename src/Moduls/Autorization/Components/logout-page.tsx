@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import {Navigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
+
 import {logOut} from "../auth-slice";
 import {useLogoutMutation} from "../auth-api";
 

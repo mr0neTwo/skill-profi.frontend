@@ -1,12 +1,12 @@
 import React from "react"
 import {useNavigate} from "react-router-dom"
 
-import {baseUrl} from "../../../Common/baseApi"
 import {Project} from "../project-types"
 import {useIsAdminPath} from "../../../Common/use-is-admin-path";
+import {baseUrl} from "../../../Common/baseApi"
+import {useDeleteProjectMutation} from "../project-api";
 
 import {IconButton} from "../../../Common/Components/icon-button";
-import {useDeleteProjectMutation} from "../project-api";
 import {Spinner} from "../../../Common/Components/spinner";
 import {ErrorDataLoading} from "../../../Common/Components/error-data-loading";
 

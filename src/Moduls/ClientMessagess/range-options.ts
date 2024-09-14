@@ -1,6 +1,7 @@
 import {ITimeOption} from "./client-request-types";
 import {
-    getEndOfDayTimestamp, getEndOfMonthTimestamp,
+    getEndOfDayTimestamp,
+    getEndOfMonthTimestamp,
     getEndOfWeekTimestamp,
     getStartOfDayTimestamp,
     getStartOfMonthTimestamp,

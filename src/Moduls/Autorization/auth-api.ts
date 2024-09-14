@@ -1,18 +1,6 @@
-import {baseApi} from "../../Common/baseApi";
-import {User} from "../Users/types";
-import {logOut, setCredentials} from "./auth-slice";
+import {baseApi} from "../../Common/baseApi"
+import {AuthResponse, LoginDto} from "./auth-types";
 
-export type AuthResponse = {
-    user: User,
-    token: string,
-    success: boolean,
-    errorMessage: string
-}
-
-export type LoginDto = {
-    email: string,
-    password: string
-}
 
 export const authApi = baseApi.injectEndpoints({
 

@@ -1,20 +1,21 @@
-import React from "react";
+import React from "react"
+import {skipToken} from "@reduxjs/toolkit/query"
 
-import {useGetClientMessagesQuery} from "../client-request-api";
+import {useAppSelector} from "../../../Common/redux"
+import {useGetClientMessagesQuery} from "../client-request-api"
+import {selectClientMessagesFilter} from "../client-message-slice"
 
-import {DateCell} from "./date-cell";
-import {DataCell} from "./data-cell";
-import {StatusCell} from "./status-cell";
-import {Spinner} from "../../../Common/Components/spinner";
-import {ErrorDataLoading} from "../../../Common/Components/error-data-loading";
-import {THeader} from "./t-header";
-import {selectClientMessagesFilter} from "../client-message-slice";
-import {useAppSelector} from "../../../Common/redux";
+import {DateCell} from "./date-cell"
+import {DataCell} from "./data-cell"
+import {StatusCell} from "./status-cell"
+import {Spinner} from "../../../Common/Components/spinner"
+import {ErrorDataLoading} from "../../../Common/Components/error-data-loading"
+import {THeader} from "./t-header"
 
 const ClientMessageTable : React.FC = () => {
 
     const filter = useAppSelector(selectClientMessagesFilter)
-    const { data: response, error, isLoading } = useGetClientMessagesQuery(filter);
+    const { data: response, error, isLoading } = useGetClientMessagesQuery(filter ?? skipToken);
 
     if (isLoading) return <Spinner/>;
     if (error) return <ErrorDataLoading/>;

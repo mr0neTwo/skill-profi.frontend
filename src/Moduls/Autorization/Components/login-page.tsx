@@ -1,10 +1,13 @@
-import React, {useState} from "react";
-import {useLocation, useNavigate} from "react-router-dom";
-import {Input} from "../../../Common/Components/input";
-import {Button} from "../../../Common/Components/button";
-import {useLoginMutation} from "../auth-api";
-import {useDispatch} from "react-redux";
-import {setCredentials} from "../auth-slice";
+import React, {useEffect, useState} from "react"
+import {useLocation, useNavigate} from "react-router-dom"
+import {useDispatch} from "react-redux"
+
+import {useLoginMutation, useRefreshQuery} from "../auth-api"
+import {setCredentials} from "../auth-slice"
+
+import {Input} from "../../../Common/Components/input"
+import {Button} from "../../../Common/Components/button"
+import {Spinner} from "../../../Common/Components/spinner"
 
 interface LocationState {
     from: {
@@ -20,12 +23,20 @@ const LoginPage: React.FC = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
+    const dispatch = useDispatch()
 
     const [login] = useLoginMutation()
-    const dispatch = useDispatch()
+    const {data: authResponse, isLoading} = useRefreshQuery()
 
     const state = location.state as LocationState | undefined;
     const fromPage = state?.from?.pathname || '/admin';
+
+    useEffect(() => {
+        if (authResponse?.success) {
+            dispatch(setCredentials({ user: authResponse.user }));
+            navigate(fromPage, {replace: true})
+        }
+    }, [authResponse, dispatch]);
 
     const handleSubmit = async () => {
 
@@ -44,6 +55,7 @@ const LoginPage: React.FC = () => {
 
     }
 
+    if(isLoading) return <Spinner />;
 
     return (
         <div className='flex justify-center items-center h-full'>

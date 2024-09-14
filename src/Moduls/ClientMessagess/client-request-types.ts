@@ -1,8 +1,7 @@
-import {Id} from "../../Common/common-types";
 import {IOption} from "../../Common/Components/select-option";
 
 export type ClientMessage = {
-    id : Id
+    id : number
     creationDate: number
     clientName: string
     clientEmail: string
@@ -31,7 +30,7 @@ export type CreateClientMessageDto = {
 }
 
 export type UpdateClientMessageDto = {
-    id: Id
+    id: number
     status : ClientMessageStatus
 }
 

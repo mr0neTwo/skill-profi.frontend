@@ -1,12 +1,19 @@
 import React, {useState} from "react";
-import {useCreateUserMutation, useDeleteUserMutation, useGetUsersQuery, useUpdateUserMutation} from "../user-api";
+import {useCreateUserMutation, useGetUsersQuery, userApi, useUpdateUserMutation} from "../user-api";
+import {useAppDispatch, useAppSelector} from "../../../Common/redux";
+import {Spinner} from "../../../Common/Components/spinner";
 
 const UsersPage : React.FC = () => {
+
+    const dispatch = useAppDispatch();
 
     const { data: users, error, isLoading } = useGetUsersQuery();
     const [createUser] = useCreateUserMutation();
     const [updateUser] = useUpdateUserMutation();
-    const [deleteUser] = useDeleteUserMutation();
+
+    const userId: string = "1";
+
+    const  isLoadingDelete = useAppSelector((state) => userApi.endpoints.deleteUser.select(userId)(state).isLoading)
 
     const [newUserName, setNewUserName] = useState<string>('');
     const [newUserEmail, setNewUserEmail] = useState<string>('');
@@ -36,12 +43,11 @@ const UsersPage : React.FC = () => {
     };
 
     const handleDeleteUser = async (id: number) => {
-        try {
-            await deleteUser(id);
-        } catch (error) {
-            console.error("Failed to delete user", error);
-        }
+        // dispatch(deleteUser(id))
     };
+
+    if(isLoadingDelete) return <Spinner/>;
+
     return (
         <div>
 

@@ -1,9 +1,20 @@
 import {store} from "../Redux/store";
-import {asyncThunkCreator, buildCreateSlice, createAsyncThunk, ThunkAction, UnknownAction} from "@reduxjs/toolkit";
+import {
+    asyncThunkCreator,
+    buildCreateSlice,
+    combineSlices,
+    createAsyncThunk,
+    ThunkAction,
+    UnknownAction
+} from "@reduxjs/toolkit";
 import {extraArgument} from "./extra-argument";
 import {useDispatch, useSelector, useStore} from "react-redux";
+import {baseApi} from "./baseApi";
 
-export type AppState = ReturnType<typeof store.getState>
+export const rootReducer = combineSlices(baseApi)
+
+// export type AppState = ReturnType<typeof store.getState>
+export type AppState = any
 export type AppDispatch = typeof store.dispatch
 export type AppThunk<R = void> = ThunkAction<R, AppState, typeof extraArgument, UnknownAction>
 export const useAppStore = useStore.withTypes<typeof store>();

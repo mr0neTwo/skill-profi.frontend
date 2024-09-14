@@ -1,17 +1,14 @@
 import {store} from "../../Redux/store";
 import {LoaderFunctionArgs} from "react-router-dom";
-
-import {clientRequestApi} from "./client-request-api";
-import {selectClientMessagesFilter} from "./client-message-slice";
+import {loadClientMessagesThunk} from "./load-client-messages-thunk";
 
 
 const clientMessagesLoader = ({request, params}: LoaderFunctionArgs) => {
 
-    const filter = selectClientMessagesFilter(store.getState());
-
-    store.dispatch(clientRequestApi.util.prefetch('getClientMessages', filter, {}))
+    store.dispatch(loadClientMessagesThunk())
 
     return null
 }
 
 export {clientMessagesLoader}
+

@@ -5,7 +5,6 @@ const Spinner : React.FC = () => {
         <div className='flex justify-center items-center w-full h-full'>
             <div className="spinner"/>
         </div>
-
     )
 }
 

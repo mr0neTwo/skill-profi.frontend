@@ -1,7 +1,8 @@
-import React, {useEffect, useRef, useState} from "react";
-import {statusNames, statusStyle} from "../client-request-types";
-import {IStatus} from "./status-cell";
-import {useUpdateClientMessageMutation} from "../client-request-api";
+import React, {useEffect, useRef, useState} from "react"
+
+import {IStatus} from "./status-cell"
+import {statusNames, statusStyle} from "../client-request-types"
+import {useUpdateClientMessageMutation} from "../client-request-api"
 
 export const Status: React.FC<IStatus> = ({id, status}) => {
 

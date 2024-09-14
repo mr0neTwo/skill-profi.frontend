@@ -1,5 +1,6 @@
-import React from "react";
-import {Cell} from "./cell";
+import React from "react"
+
+import {Cell} from "./cell"
 
 interface IDateCell {
     timestamp: number

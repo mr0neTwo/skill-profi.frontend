@@ -1,0 +1,13 @@
+import {User} from "../Users/types";
+
+export type AuthResponse = {
+    user: User,
+    token: string,
+    success: boolean,
+    errorMessage: string
+}
+
+export type LoginDto = {
+    email: string,
+    password: string
+}

@@ -1,10 +1,11 @@
-import React, {useState} from "react";
+import React, {useState} from "react"
+import {useDispatch} from "react-redux"
 
-import {SelectOption} from "../../../Common/Components/select-option";
-import {ITimeOption} from "../client-request-types";
-import {setDateRange} from "../client-message-slice";
-import {useDispatch} from "react-redux";
-import {rangeOptions} from "../range-options";
+import {ITimeOption} from "../client-request-types"
+import {setDateRange} from "../client-message-slice"
+import {rangeOptions} from "../range-options"
+
+import {SelectOption} from "../../../Common/Components/select-option"
 
 
 const ClientMessageFilter: React.FC = () => {
