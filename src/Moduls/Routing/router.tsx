@@ -20,6 +20,10 @@ import {ProjectsPage} from "../Projects/Components/ProjectsPage";
 import {projectLoader} from "../Projects/project-prefething";
 import {ProjectDetails} from "../Projects/Components/project-details";
 import {ProjectForm} from "../Projects/Components/project-form";
+import {BlogPage} from "../Blog/Components/blog-page";
+import {postLoader} from "../Blog/post-profetching";
+import {PostDetails} from "../Blog/Components/post-details";
+import {PostForm} from "../Blog/Components/post-form";
 
 const routes = [
     {
@@ -42,7 +46,11 @@ const routes = [
                 element: <ProjectDetails />,
             }, {
                 path: 'blog',
-                element: <TemporaryPage text="Здесь будет блог" />
+                element: <BlogPage/>,
+                loader: postLoader
+            }, {
+                path: 'blog/:id',
+                element: <PostDetails/>
             }, {
                 path: 'contacts',
                 element: <TemporaryPage text="Здесь будут контакты" />
@@ -82,7 +90,14 @@ const routes = [
                 element: <ProjectForm />
             }, {
                 path: 'blog',
-                element: <TemporaryPage text="Здесь будет блог" />
+                element: <BlogPage/>,
+                loader: postLoader
+            }, {
+                path: 'blog/create',
+                element: <PostForm />
+            }, {
+                path: 'blog/edit/:id',
+                element: <PostForm />
             }, {
                 path: 'contacts',
                 element: <TemporaryPage text="Здесь будут контакты" />

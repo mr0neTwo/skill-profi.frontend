@@ -1,63 +1,65 @@
 import React from "react"
 import {useNavigate} from "react-router-dom"
-import {skipToken} from "@reduxjs/toolkit/query";
+import {skipToken} from "@reduxjs/toolkit/query"
 
 import {useAppDispatch, useAppSelector} from "../../../Common/redux"
-import {useIsAdminPath} from "../../../Common/use-is-admin-path"
-import {useGetProjectListQuery} from "../project-api"
-import {setPage} from "../project-slice"
-import {selectProjectFilter} from "../project-slice"
+import {useGetPostListQuery} from "../blog-api"
+import {selectPostFilter} from "../blog-slice"
+import {setPage} from "../blog-slice"
 
-import {IProjectFormState, ProjectView} from "./project-view"
+import {IPostFormState, PostView} from "./post";
 import {Spinner} from "../../../Common/Components/spinner"
 import {ErrorDataLoading} from "../../../Common/Components/error-data-loading"
+import {useIsAdminPath} from "../../../Common/use-is-admin-path"
 import {Pagination} from "../../../Common/Components/pagination"
-import {Button} from "../../../Common/Components/button"
 import {H1} from "../../../Common/Components/h1";
+import {Button} from "../../../Common/Components/button";
 
-const ProjectsPage:React.FC = () => {
+const BlogPage: React.FC = () => {
 
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
     const isAdmin = useIsAdminPath()
 
-    const filter = useAppSelector(selectProjectFilter)
-    const {data: response, isLoading, isError } = useGetProjectListQuery(filter ?? skipToken)
+    const filter = useAppSelector(selectPostFilter);
+    const {data: response, isLoading, isError } = useGetPostListQuery(filter ?? skipToken)
 
     const handleSelectPage = (page: number) => {
         dispatch(setPage(page))
     }
 
-    const handleCreateProject = () => {
-        const state: IProjectFormState = {editMode: false, project: null}
+    const handleCreatePost = () => {
+        const state: IPostFormState = {editMode: false, post: null}
         navigate('create', {state})
     }
 
     if(isLoading) return <Spinner/>
-    if(isError) return <ErrorDataLoading/>;
+    if (isError) return <ErrorDataLoading/>
 
     return (
-        <div className='flex flex-col gap-8 p-8 justify-between max-w-[1400px] grow'>
+        <div className='flex flex-col p-8 gap-8 grow justify-between max-w-[1400px]'>
+
+            <Button
+                type='create'
+                text='Новый пост'
+                onClick={handleCreatePost}
+                visible={isAdmin}
+            />
 
             <div className='flex flex-col gap-4'>
-                <Button
-                    type='create'
-                    text='Новый проект'
-                    onClick={handleCreateProject}
-                    visible={isAdmin}
-                />
 
-                {!isAdmin && <H1 className='self-center'>Проекты</H1>}
+                {!isAdmin && <H1 className='self-center'>Блог</H1>}
 
                 <div className={`flex flex-wrap gap-8 ${isAdmin ? 'justify-start' : 'justify-center'}`}>
-                    {response?.projects.map(project => (
-                        <ProjectView
-                            key={project.id}
-                            project={project}
+                    {response?.posts.map(post => (
+                        <PostView
+                            key={post.id}
+                            post={post}
                         />
                     ))}
                 </div>
+
             </div>
 
             {response && response.count > filter.pageSize  &&
@@ -75,4 +77,4 @@ const ProjectsPage:React.FC = () => {
     )
 }
 
-export { ProjectsPage }
+export { BlogPage }

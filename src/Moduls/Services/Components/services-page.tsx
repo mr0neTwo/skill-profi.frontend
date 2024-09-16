@@ -14,6 +14,7 @@ import {Button} from "../../../Common/Components/button";
 import {useIsAdminPath} from "../../../Common/use-is-admin-path";
 import {Service} from "../service-types";
 import {skipToken} from "@reduxjs/toolkit/query";
+import {H1} from "../../../Common/Components/h1";
 
 export interface IServiceFormsState {
     editMode: boolean;
@@ -64,6 +65,8 @@ const ServicesPage: React.FC = () => {
                     onClick={handleCreate}
                     visible={isAdmin}
                 />
+
+                {!isAdmin && <H1 className='self-center'>Что мы можем сделать</H1>}
 
                 {response?.services.map(service =>
                     <div
