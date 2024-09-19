@@ -5,7 +5,6 @@ import {userListLoader} from "../Users/user-prefetching"
 import {clientMessagesLoader} from "../ClientMessagess/client-message-prefetching"
 import {serviceLoader} from "../Services/service-prefetching";
 
-import {TemporaryPage} from "../../Common/Components/temporary-page"
 import {AdminLayout} from "./Components/admin-layout"
 import {ClientLayout} from "./Components/client-layout"
 import {LoginPage} from "../Autorization/Components/login-page"
@@ -24,6 +23,9 @@ import {BlogPage} from "../Blog/Components/blog-page";
 import {postLoader} from "../Blog/post-profetching";
 import {PostDetails} from "../Blog/Components/post-details";
 import {PostForm} from "../Blog/Components/post-form";
+import {CompanyPage} from "../Company/Components/company-page";
+import {CompanyForms} from "../Company/Components/company-forms";
+import {SocialMediaForms} from "../Company/Components/social-media-forms";
 
 const routes = [
     {
@@ -53,7 +55,7 @@ const routes = [
                 element: <PostDetails/>
             }, {
                 path: 'contacts',
-                element: <TemporaryPage text="Здесь будут контакты" />
+                element: <CompanyPage />
             }
         ]
     },
@@ -100,7 +102,13 @@ const routes = [
                 element: <PostForm />
             }, {
                 path: 'contacts',
-                element: <TemporaryPage text="Здесь будут контакты" />
+                element: <CompanyPage />
+            }, {
+                path: 'contacts/edit',
+                element: <CompanyForms />
+            }, {
+                path: 'contacts/socialmedias/edit',
+                element: <SocialMediaForms />
             }, {
                 path: 'users',
                 element: <UsersPage />,

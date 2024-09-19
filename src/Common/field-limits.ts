@@ -28,6 +28,7 @@ export const FIELD_LIMITS = {
     CompanyPhoneMaxLength: 20,
     CompanyAddressMaxLength: 100,
     CompanyDirectorNameMaxLength: 50,
+    CompanyMapLinkMaxLength: 300,
 
     SocialMediaIconNameMaxLength: 20,
     SocialMediaLinkMaxLength: 50,

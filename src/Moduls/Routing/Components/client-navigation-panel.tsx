@@ -1,10 +1,11 @@
-import React from "react";
+import React from "react"
+import {useSelector} from "react-redux"
 
-import {AppLink} from "./app-link";
-import {clientLinks} from "../links-data";
-import {SiteItemKeys} from "../../../Common/site-item-keys";
-import {useSelector} from "react-redux";
-import {selectIsLogin} from "../../Autorization/auth-slice";
+import {clientLinks} from "../links-data"
+import {SiteItemKeys} from "../../../Common/site-item-keys"
+import {selectIsLogin} from "../../Autorization/auth-slice"
+
+import {AppLink} from "./app-link"
 
 const ClientNavigationPanel: React.FC = ()=> {
 

@@ -16,16 +16,16 @@ export const Status: React.FC<IStatus> = ({id, status}) => {
 
     const elementRef = useRef<HTMLDivElement>(null)
 
-    const clickHandel = (event: MouseEvent) => {
+    const handleClick = (event: MouseEvent) => {
         if (elementRef.current && showMenu && !elementRef.current.contains(event.target as Node)) {
             setShoeMenu(false)
         }
     }
 
     useEffect(() => {
-        window.addEventListener('click', clickHandel)
+        window.addEventListener('click', handleClick)
         return () => {
-            window.removeEventListener('click', clickHandel)
+            window.removeEventListener('click', handleClick)
         }
     })
 
