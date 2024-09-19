@@ -92,6 +92,8 @@ const Input = forwardRef<IInputRef, IInput>((props, ref) => {
                 onBlur={handleOnBlur}
                 onKeyDown={handleKeyDown}
                 type={password ? 'password' : ''}
+                autoComplete="off"
+                autoCorrect="off"
             />
         </div>
     )

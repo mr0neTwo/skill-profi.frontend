@@ -49,11 +49,9 @@ const ProjectForm: React.FC = () => {
             navigate('/admin/projects');
         } catch (err) {
         }
-    };
+    }
 
     const handleUpdate = async () => {
-
-        console.log(imageBase64)
 
         if(!project) {
             return
@@ -73,14 +71,14 @@ const ProjectForm: React.FC = () => {
             navigate('/admin/projects');
         } catch (err) {
         }
-    };
+    }
 
     const handleBack = () => {
         navigate(-1)
     }
 
-    if(isCreateLoading || isUpdateLoading ) return <Spinner />;
-    if(isCreateError || isUpdateError) return <ErrorDataLoading/>;
+    if(isCreateLoading || isUpdateLoading ) return <Spinner />
+    if(isCreateError || isUpdateError) return <ErrorDataLoading/>
 
     return (
         <div className='flex flex-col p-5 h-screen'>

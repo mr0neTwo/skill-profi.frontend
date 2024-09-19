@@ -1,7 +1,7 @@
 import {createSelector, createSlice, PayloadAction} from "@reduxjs/toolkit"
 
 import {GetServiceListDto} from "./service-types"
-import {rootReducer} from "../../Common/redux";
+import {rootReducer} from "../../Common/redux"
 
 interface IServiceState {
     pageSize: number,

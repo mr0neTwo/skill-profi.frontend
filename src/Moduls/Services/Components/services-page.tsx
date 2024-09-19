@@ -1,20 +1,20 @@
-import React from "react";
-import {useNavigate} from "react-router-dom";
+import React from "react"
+import {useNavigate} from "react-router-dom"
+import {skipToken} from "@reduxjs/toolkit/query"
 
-import {useDeleteServiceMutation, useGetServiceListQuery} from "../service-api";
-import {selectServiceFilter, setPage} from "../service-slice";
-import {useAppDispatch, useAppSelector} from "../../../Common/redux";
+import {Service} from "../service-types"
+import {useDeleteServiceMutation, useGetServiceListQuery} from "../service-api"
+import {selectServiceFilter, setPage} from "../service-slice"
+import {useAppDispatch, useAppSelector} from "../../../Common/redux"
 
-import {ServiceFoldout} from "./service-foldout";
+import {ServiceFoldout} from "./service-foldout"
 import {Spinner} from "../../../Common/Components/spinner";
-import {ErrorDataLoading} from "../../../Common/Components/error-data-loading";
-import {Pagination} from "../../../Common/Components/pagination";
-import {IconButton} from "../../../Common/Components/icon-button";
-import {Button} from "../../../Common/Components/button";
-import {useIsAdminPath} from "../../../Common/use-is-admin-path";
-import {Service} from "../service-types";
-import {skipToken} from "@reduxjs/toolkit/query";
-import {H1} from "../../../Common/Components/h1";
+import {ErrorDataLoading} from "../../../Common/Components/error-data-loading"
+import {Pagination} from "../../../Common/Components/pagination"
+import {IconButton} from "../../../Common/Components/icon-button"
+import {Button} from "../../../Common/Components/button"
+import {useIsAdminPath} from "../../../Common/use-is-admin-path"
+import {H1} from "../../../Common/Components/h1"
 
 export interface IServiceFormsState {
     editMode: boolean;

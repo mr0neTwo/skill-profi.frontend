@@ -1,5 +1,5 @@
-import {z} from "zod";
-import {ICON} from "../../Common/icons";
+import {z} from "zod"
+import {ICON} from "../../Common/icons"
 
 export const CompanySchema = z.object({
     name: z.string(),

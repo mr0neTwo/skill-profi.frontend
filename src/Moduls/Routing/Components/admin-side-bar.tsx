@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React, {useState} from "react"
 
-import {adminLinks} from "../links-data";
-import {SiteItemKeys} from "../../../Common/site-item-keys";
+import {adminLinks} from "../links-data"
+import {SiteItemKeys} from "../../../Common/site-item-keys"
 
-import {AppLink} from "./app-link";
-import {IconButton} from "../../../Common/Components/icon-button";
-import {ThemeSwitcher} from "./theme-switcher";
+import {AppLink} from "./app-link"
+import {IconButton} from "../../../Common/Components/icon-button"
+import {ThemeSwitcher} from "./theme-switcher"
 
 const AdminSideBar : React.FC = () => {
 

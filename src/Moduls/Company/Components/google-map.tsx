@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 
-import {Skeleton} from "../../../Common/Components/Skeleton";
+import {Skeleton} from "../../../Common/Components/Skeleton"
 
 interface IMap{
     link: string

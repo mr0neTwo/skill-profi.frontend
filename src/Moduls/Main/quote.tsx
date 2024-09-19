@@ -1,12 +1,12 @@
-import React, {useRef, useState} from "react";
+import React, {useRef, useState} from "react"
 
-import {useGetSiteItemQuery, useUpdateSiteItemMutation} from "../SiteItem/site-item-api";
+import {useIsAdminPath} from "../../Common/use-is-admin-path"
+import {FIELD_LIMITS} from "../../Common/field-limits"
+import {useGetSiteItemQuery, useUpdateSiteItemMutation} from "../SiteItem/site-item-api"
 
-import {IInputRef, Input} from "../../Common/Components/input";
-import {Skeleton} from "../../Common/Components/Skeleton";
-import {IconButton} from "../../Common/Components/icon-button";
-import {useIsAdminPath} from "../../Common/use-is-admin-path";
-import {FIELD_LIMITS} from "../../Common/field-limits";
+import {IInputRef, Input} from "../../Common/Components/input"
+import {Skeleton} from "../../Common/Components/Skeleton"
+import {IconButton} from "../../Common/Components/icon-button"
 
 interface IMainQuote {
     className?: string;

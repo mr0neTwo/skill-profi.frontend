@@ -1,6 +1,6 @@
-import {AppThunk} from "../../Common/redux";
-import {blogApi} from "./blog-api";
-import {selectPostFilter} from "./blog-slice";
+import {AppThunk} from "../../Common/redux"
+import {blogApi} from "./blog-api"
+import {selectPostFilter} from "./blog-slice"
 
 export const loadPostThunk = (): AppThunk =>
     async (dispatch, getState, _) => {

@@ -1,13 +1,14 @@
-import React from "react";
-import {Navigate, Outlet, useLocation} from "react-router-dom";
+import React from "react"
+import {Navigate, Outlet, useLocation} from "react-router-dom"
 
-import {AdminSideBar} from "./admin-side-bar";
-import {selectIsLogin} from "../../Autorization/auth-slice";
-import {useSelector} from "react-redux";
+import {selectIsLogin} from "../../Autorization/auth-slice"
+import {useAppSelector} from "../../../Common/redux"
+
+import {AdminSideBar} from "./admin-side-bar"
 
 const AdminLayout : React.FC = () => {
 
-    const isLogin = useSelector(selectIsLogin);
+    const isLogin = useAppSelector(selectIsLogin);
     const location = useLocation();
 
     if(!isLogin){

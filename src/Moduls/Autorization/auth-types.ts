@@ -1,4 +1,4 @@
-import {User} from "../Users/types";
+import {User} from "../Users/user-types"
 
 export type AuthResponse = {
     user: User,

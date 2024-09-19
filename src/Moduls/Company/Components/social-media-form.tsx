@@ -1,7 +1,9 @@
-import React from "react";
-import {Input} from "../../../Common/Components/input";
-import {ICON} from "../../../Common/icons";
-import {SelectIcon} from "./select-icon";
+import React from "react"
+
+import {ICON} from "../../../Common/icons"
+
+import {Input} from "../../../Common/Components/input"
+import {SelectIcon} from "./select-icon"
 
 interface ISocialMediaForm {
     iconName: keyof typeof ICON

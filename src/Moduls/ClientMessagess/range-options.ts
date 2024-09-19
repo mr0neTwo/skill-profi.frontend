@@ -1,4 +1,4 @@
-import {ITimeOption} from "./client-request-types";
+import {ITimeOption} from "./client-request-types"
 import {
     getEndOfDayTimestamp,
     getEndOfMonthTimestamp,
@@ -6,7 +6,7 @@ import {
     getStartOfDayTimestamp,
     getStartOfMonthTimestamp,
     getStartOfWeekTimestamp
-} from "./Components/timestamp-utils";
+} from "./Components/timestamp-utils"
 
 export const rangeOptions: ITimeOption[] = [
     {

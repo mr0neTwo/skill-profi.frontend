@@ -4,11 +4,11 @@ import {useGetCompanyQuery} from "../company-api"
 
 import {Spinner} from "../../../Common/Components/spinner"
 import {ErrorDataLoading} from "../../../Common/Components/error-data-loading"
-import {H1} from "../../../Common/Components/h1";
-import {GoogleMap} from "./google-map";
-import {CompanyData} from "./company-data";
-import {useIsAdminPath} from "../../../Common/use-is-admin-path";
-import {SocialMedias} from "./social-medias";
+import {H1} from "../../../Common/Components/h1"
+import {GoogleMap} from "./google-map"
+import {CompanyData} from "./company-data"
+import {useIsAdminPath} from "../../../Common/use-is-admin-path"
+import {SocialMedias} from "./social-medias"
 
 const CompanyPage: React.FC = () => {
 

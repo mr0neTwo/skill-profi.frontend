@@ -1,4 +1,4 @@
-import {SiteItemKeys} from "../../Common/site-item-keys";
+import {SiteItemKeys} from "../../Common/site-item-keys"
 
 export const adminLinks = [
     {

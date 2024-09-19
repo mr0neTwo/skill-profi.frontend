@@ -1,10 +1,10 @@
-import React from "react";
-import {Outlet} from "react-router-dom";
+import React from "react"
+import {Outlet} from "react-router-dom"
 
-import {ClientNavigationPanel} from "./client-navigation-panel";
-import {HeaderQuote} from "./header-quote";
-import {Footer} from "./footer";
-import {ThemeSwitcher} from "./theme-switcher";
+import {ClientNavigationPanel} from "./client-navigation-panel"
+import {HeaderQuote} from "./header-quote"
+import {Footer} from "./footer"
+import {ThemeSwitcher} from "./theme-switcher"
 
 const ClientLayout : React.FC = () => {
 

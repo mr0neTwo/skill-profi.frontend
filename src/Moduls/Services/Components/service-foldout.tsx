@@ -1,7 +1,7 @@
-import React, {useEffect, useMemo, useRef, useState} from "react";
+import React, {useEffect, useMemo, useRef, useState} from "react"
 
-import {Icon} from "../../../Common/Components/icon";
-import {ICON} from "../../../Common/icons";
+import {Icon} from "../../../Common/Components/icon"
+import {ICON} from "../../../Common/icons"
 
 interface IServiceFoldout {
     title: string;
@@ -11,9 +11,9 @@ interface IServiceFoldout {
 
 const ServiceFoldout: React.FC<IServiceFoldout> = ({ title, text, initialOpen = false }) => {
 
-    const [isOpen, setIsOpen] = useState<boolean>(initialOpen);
-    const [maxHeight, setMaxHeight] = useState<string>(isOpen ? '1000px' : '0px');
-    const contentRef = useRef<HTMLDivElement>(null);
+    const [isOpen, setIsOpen] = useState<boolean>(initialOpen)
+    const [maxHeight, setMaxHeight] = useState<string>(isOpen ? '1000px' : '0px')
+    const contentRef = useRef<HTMLDivElement>(null)
 
     const toggleFoldout = () => {
         setIsOpen(!isOpen);
@@ -21,9 +21,9 @@ const ServiceFoldout: React.FC<IServiceFoldout> = ({ title, text, initialOpen = 
 
     useEffect(() => {
         if (isOpen) {
-            setMaxHeight(`${contentRef.current?.scrollHeight}px`);
+            setMaxHeight(`${contentRef.current?.scrollHeight}px`)
         } else {
-            setMaxHeight('0px');
+            setMaxHeight('0px')
         }
     }, [isOpen]);
 

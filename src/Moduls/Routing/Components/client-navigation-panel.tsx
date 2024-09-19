@@ -1,6 +1,6 @@
 import React from "react"
-import {useSelector} from "react-redux"
 
+import {useAppSelector} from "../../../Common/redux";
 import {clientLinks} from "../links-data"
 import {SiteItemKeys} from "../../../Common/site-item-keys"
 import {selectIsLogin} from "../../Autorization/auth-slice"
@@ -9,7 +9,7 @@ import {AppLink} from "./app-link"
 
 const ClientNavigationPanel: React.FC = ()=> {
 
-    const isLogin = useSelector(selectIsLogin);
+    const isLogin = useAppSelector(selectIsLogin);
 
     return(
         <nav>

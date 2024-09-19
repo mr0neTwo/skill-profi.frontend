@@ -1,6 +1,6 @@
-import {AppThunk} from "../../Common/redux";
-import {selectServiceFilter} from "./service-slice";
-import {serviceApi} from "./service-api";
+import {AppThunk} from "../../Common/redux"
+import {selectServiceFilter} from "./service-slice"
+import {serviceApi} from "./service-api"
 
 export const loadServiceListThunk = (): AppThunk =>
     async (dispatch, getState, _) => {

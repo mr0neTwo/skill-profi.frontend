@@ -1,6 +1,6 @@
-import {baseApi} from "../../Common/baseApi";
-import {Company, SocialMedia, UpdateCompanyDto, UpdateSocialMediaDto} from "./company-types";
-import {CompanySchema, SocialMediaSchema, UpdateCompanyDtoSchema, UpdateSocialMediaDtoSchema} from "./company-validation-shemas";
+import {baseApi} from "../../Common/baseApi"
+import {Company, SocialMedia, UpdateCompanyDto, UpdateSocialMediaDto} from "./company-types"
+import {CompanySchema, SocialMediaSchema, UpdateCompanyDtoSchema, UpdateSocialMediaDtoSchema} from "./company-validation-shemas"
 
 export const companyApi = baseApi.injectEndpoints({
 

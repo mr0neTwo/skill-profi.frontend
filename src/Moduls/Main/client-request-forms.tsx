@@ -2,7 +2,7 @@ import React, {useRef, useState} from "react"
 
 import {useCreateClientMessageMutation} from "../ClientMessagess/client-request-api"
 
-import {IInputRef, Input} from "../../Common/Components/input";
+import {IInputRef, Input} from "../../Common/Components/input"
 import {Button} from "../../Common/Components/button"
 import {TextAria} from "../../Common/Components/text-area"
 

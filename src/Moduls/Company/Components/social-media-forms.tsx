@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from "react";
 import {useNavigate} from "react-router-dom"
 
-import {SocialMedia, UpdateSocialMediaDto} from "../company-types"
+import {SocialMedia} from "../company-types"
 import {ICON} from "../../../Common/icons"
 import {useGetSocialMediasQuery, useUpdateSocialMediasMutation} from "../company-api"
 

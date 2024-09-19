@@ -1,8 +1,7 @@
-import {baseApi} from "../../Common/baseApi";
+import {baseApi} from "../../Common/baseApi"
 
-import {CreateServiceDto, GetServiceListDto, GetServiceListResponse, UpdateServiceDto} from "./service-types";
-import {CreateServiceDtiSchema, GetServiceListResponseSchema, UpdateServiceDtiSchema} from "./servece-validation-schemas";
-import {Id} from "../../Common/common-types";
+import {CreateServiceDto, GetServiceListDto, GetServiceListResponse, UpdateServiceDto} from "./service-types"
+import {CreateServiceDtiSchema, GetServiceListResponseSchema, UpdateServiceDtiSchema} from "./servece-validation-schemas"
 
 export const serviceApi = baseApi.injectEndpoints({
 
@@ -26,7 +25,7 @@ export const serviceApi = baseApi.injectEndpoints({
             },
         }),
 
-        createService: builder.mutation<Id, CreateServiceDto>({
+        createService: builder.mutation<number, CreateServiceDto>({
             query: (dto) => {
                 const validation = CreateServiceDtiSchema.safeParse(dto)
 

@@ -3,29 +3,30 @@ import {createBrowserRouter} from "react-router-dom"
 
 import {userListLoader} from "../Users/user-prefetching"
 import {clientMessagesLoader} from "../ClientMessagess/client-message-prefetching"
-import {serviceLoader} from "../Services/service-prefetching";
+import {serviceLoader} from "../Services/service-prefetching"
+import {projectLoader} from "../Projects/project-prefething"
+import {postLoader} from "../Blog/post-profetching"
 
 import {AdminLayout} from "./Components/admin-layout"
 import {ClientLayout} from "./Components/client-layout"
 import {LoginPage} from "../Autorization/Components/login-page"
-import {UsersPage} from "../Users/Components/UsersPage"
+import {UsersPage} from "../Users/Components/users-page"
 import {MainPage} from "../Main/main-page"
 import {ClientMessagePage} from "../ClientMessagess/Components/client-message-page"
 import {LogoutPage} from "../Autorization/Components/logout-page"
 import {AdminMainPage} from "../Main/admin-main-page"
 import {ServicesPage} from "../Services/Components/services-page"
 import {ServiceForm} from "../Services/Components/service-form"
-import {ProjectsPage} from "../Projects/Components/ProjectsPage";
-import {projectLoader} from "../Projects/project-prefething";
-import {ProjectDetails} from "../Projects/Components/project-details";
-import {ProjectForm} from "../Projects/Components/project-form";
-import {BlogPage} from "../Blog/Components/blog-page";
-import {postLoader} from "../Blog/post-profetching";
-import {PostDetails} from "../Blog/Components/post-details";
-import {PostForm} from "../Blog/Components/post-form";
-import {CompanyPage} from "../Company/Components/company-page";
-import {CompanyForms} from "../Company/Components/company-forms";
-import {SocialMediaForms} from "../Company/Components/social-media-forms";
+import {ProjectsPage} from "../Projects/Components/ProjectsPage"
+import {ProjectDetails} from "../Projects/Components/project-details"
+import {ProjectForm} from "../Projects/Components/project-form"
+import {BlogPage} from "../Blog/Components/blog-page"
+import {PostDetails} from "../Blog/Components/post-details"
+import {PostForm} from "../Blog/Components/post-form"
+import {CompanyPage} from "../Company/Components/company-page"
+import {CompanyForms} from "../Company/Components/company-forms"
+import {SocialMediaForms} from "../Company/Components/social-media-forms"
+import {UserForms} from "../Users/Components/user-forms"
 
 const routes = [
     {
@@ -113,6 +114,12 @@ const routes = [
                 path: 'users',
                 element: <UsersPage />,
                 loader: userListLoader
+            }, {
+                path: 'users/create',
+                element: <UserForms />
+            }, {
+                path: 'users/edit/:id',
+                element: <UserForms />
             }
         ],
     }, {
@@ -122,6 +129,6 @@ const routes = [
         path: '/logout',
         element: <LogoutPage />
     }
-];
+]
 
-export const router = createBrowserRouter(routes);
+export const router = createBrowserRouter(routes)

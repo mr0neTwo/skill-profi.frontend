@@ -1,13 +1,12 @@
 import React from "react"
 
-import {Id} from "../../../Common/common-types"
 import {ClientMessageStatus} from "../client-request-types"
 
 import {Status} from "./status"
-import {Cell} from "./cell"
+import {Cell} from "../../../Common/Components/Table/cell"
 
 export interface IStatus {
-    id: Id,
+    id: number,
     status: ClientMessageStatus
 }
 

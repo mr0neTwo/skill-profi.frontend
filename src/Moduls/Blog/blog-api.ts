@@ -1,6 +1,6 @@
-import {baseApi} from "../../Common/baseApi";
-import {CreatePostDto, GetPostListDto, GetPostListResponse, UpdatePostDto} from "./blog-types";
-import {CratePostDtoSchema, GetPostListResponseSchema, UpdatePostDtoSchema} from "./blog-validation-shemas";
+import {baseApi} from "../../Common/baseApi"
+import {CreatePostDto, GetPostListDto, GetPostListResponse, UpdatePostDto} from "./blog-types"
+import {CratePostDtoSchema, GetPostListResponseSchema, UpdatePostDtoSchema} from "./blog-validation-shemas"
 
 export const blogApi = baseApi.injectEndpoints({
 

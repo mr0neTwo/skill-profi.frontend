@@ -1,5 +1,5 @@
-import {store} from "../../Redux/store";
-import {loadServiceListThunk} from "./load-service-list-thunk";
+import {store} from "../../Redux/store"
+import {loadServiceListThunk} from "./load-service-list-thunk"
 
 export const serviceLoader = () => {
 

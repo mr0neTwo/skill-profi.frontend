@@ -1,6 +1,8 @@
-import React, {useState} from "react";
-import {ToggleSwitch} from "../../../Common/Components/ToggleSwitch";
-import {useTheme} from "./use-theme";
+import React, {useState} from "react"
+
+import {useTheme} from "./use-theme"
+
+import {ToggleSwitch} from "../../../Common/Components/ToggleSwitch"
 
 interface IThemeSwitcher {
     className?: string;

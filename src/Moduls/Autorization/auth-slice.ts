@@ -1,6 +1,7 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {rootReducer} from "../../Common/redux";
-import {User} from "../Users/types";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit"
+import {rootReducer} from "../../Common/redux"
+
+import {User} from "../Users/user-types";
 
 interface AuthState {
     user: User | null

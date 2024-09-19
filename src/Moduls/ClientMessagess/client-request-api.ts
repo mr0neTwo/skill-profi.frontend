@@ -1,6 +1,6 @@
-import {baseApi} from "../../Common/baseApi";
-import {CreateClientMessageDto, GetClientMessageListDto, GetClientMessagesListResponse, UpdateClientMessageDto} from "./client-request-types";
-import {CreateRequestDtoSchema, GetClientRequestListResponseSchema, UpdateMessageDtoSchema} from "./client-request-validation-shemas";
+import {baseApi} from "../../Common/baseApi"
+import {CreateClientMessageDto, GetClientMessageListDto, GetClientMessagesListResponse, UpdateClientMessageDto} from "./client-request-types"
+import {CreateRequestDtoSchema, GetClientRequestListResponseSchema, UpdateMessageDtoSchema} from "./client-request-validation-shemas"
 
 
 export const clientRequestApi = baseApi.injectEndpoints({

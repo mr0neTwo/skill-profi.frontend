@@ -1,7 +1,7 @@
 import React from "react";
 
 export interface ICell {
-    children: React.ReactNode;
+    children?: React.ReactNode;
     className?: string
 }
 

@@ -1,7 +1,8 @@
-import React from "react";
+import React from "react"
 
-import {Quote} from "../../Main/quote";
-import {SiteItemKeys} from "../../../Common/site-item-keys";
+import {SiteItemKeys} from "../../../Common/site-item-keys"
+
+import {Quote} from "../../Main/quote"
 
 const HeaderQuote: React.FC = () => {
     return (

@@ -1,6 +1,6 @@
 import React from "react"
 import {useNavigate} from "react-router-dom"
-import {skipToken} from "@reduxjs/toolkit/query";
+import {skipToken} from "@reduxjs/toolkit/query"
 
 import {useAppDispatch, useAppSelector} from "../../../Common/redux"
 import {useIsAdminPath} from "../../../Common/use-is-admin-path"

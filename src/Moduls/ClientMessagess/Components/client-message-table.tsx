@@ -5,12 +5,12 @@ import {useAppSelector} from "../../../Common/redux"
 import {useGetClientMessagesQuery} from "../client-request-api"
 import {selectClientMessagesFilter} from "../client-message-slice"
 
-import {DateCell} from "./date-cell"
-import {DataCell} from "./data-cell"
+import {DateCell} from "../../../Common/Components/Table/date-cell"
+import {DataCell} from "../../../Common/Components/Table/data-cell"
 import {StatusCell} from "./status-cell"
 import {Spinner} from "../../../Common/Components/spinner"
 import {ErrorDataLoading} from "../../../Common/Components/error-data-loading"
-import {THeader} from "./t-header"
+import {THeader} from "../../../Common/Components/Table/t-header"
 
 const ClientMessageTable : React.FC = () => {
 
@@ -21,7 +21,7 @@ const ClientMessageTable : React.FC = () => {
     if (error) return <ErrorDataLoading/>;
 
     return (
-        <div className='flex-grow overflow-auto scrollbar-hide w-full'>
+        <div className='flex grow overflow-auto scrollbar-hide w-full'>
             <table className='border-spacing-y-2 w-full'>
                 <thead>
                     <tr className='bg-surface dark:bg-surface-dark'>

@@ -1,5 +1,5 @@
-import {baseApi} from "../../Common/baseApi";
-import {SiteItem, UpdateSiteItemDto} from "./site-item-types";
+import {baseApi} from "../../Common/baseApi"
+import {SiteItem, UpdateSiteItemDto} from "./site-item-types"
 
 export const siteItemApi = baseApi.injectEndpoints({
 

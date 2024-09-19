@@ -1,13 +1,13 @@
-import React, {useMemo, useRef, useState} from "react";
-import {Link, useMatch} from "react-router-dom";
+import React, {useMemo, useRef, useState} from "react"
+import {Link, useMatch} from "react-router-dom"
 
-import {useGetSiteItemQuery, useUpdateSiteItemMutation} from "../../SiteItem/site-item-api";
-import {ILink} from "./i-link";
+import {ILink} from "./i-link"
+import {useGetSiteItemQuery, useUpdateSiteItemMutation} from "../../SiteItem/site-item-api"
 
-import {IInputRef, Input} from "../../../Common/Components/input";
-import {IconButton} from "../../../Common/Components/icon-button";
-import {useIsAdminPath} from "../../../Common/use-is-admin-path";
-import {Skeleton} from "../../../Common/Components/Skeleton";
+import {IInputRef, Input} from "../../../Common/Components/input"
+import {IconButton} from "../../../Common/Components/icon-button"
+import {useIsAdminPath} from "../../../Common/use-is-admin-path"
+import {Skeleton} from "../../../Common/Components/Skeleton"
 
 const AppLink: React.FC<ILink> = ({to, dataKey, rootPathLength, orientation, editable = false}) => {
 

@@ -1,4 +1,4 @@
-import {ICON} from "../../Common/icons";
+import {ICON} from "../../Common/icons"
 
 export type Company = {
     name: string

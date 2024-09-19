@@ -1,6 +1,6 @@
-import {AppThunk} from "../../Common/redux";
-import {selectClientMessagesFilter} from "./client-message-slice";
-import {clientRequestApi} from "./client-request-api";
+import {AppThunk} from "../../Common/redux"
+import {selectClientMessagesFilter} from "./client-message-slice"
+import {clientRequestApi} from "./client-request-api"
 
 export const loadClientMessagesThunk = (): AppThunk =>
     async (dispatch, getState, _) => {

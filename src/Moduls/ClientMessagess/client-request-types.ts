@@ -1,4 +1,4 @@
-import {IOption} from "../../Common/Components/select-option";
+import {IOption} from "../../Common/Components/select-option"
 
 export type ClientMessage = {
     id : number
