@@ -38,7 +38,7 @@ const BlogPage: React.FC = () => {
     if (isError) return <ErrorDataLoading/>
 
     return (
-        <div className='flex flex-col p-8 gap-8 grow justify-between max-w-[1400px]'>
+        <div className='flex flex-col p-8 gap-8 h-full justify-between max-w-[1400px]'>
 
             <Button
                 type='create'

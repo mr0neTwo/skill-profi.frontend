@@ -56,7 +56,7 @@ const ServicesPage: React.FC = () => {
     if (isError) return <ErrorDataLoading/>;
 
     return (
-        <div className='flex flex-col gap-4 p-8 overflow-auto grow scrollbar-hide'>
+        <div className='flex flex-col gap-4 p-8 overflow-auto h-full scrollbar-hide'>
             <div className='flex flex-col gap-4'>
 
                 <Button

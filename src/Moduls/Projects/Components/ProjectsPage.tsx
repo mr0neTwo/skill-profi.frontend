@@ -38,7 +38,7 @@ const ProjectsPage:React.FC = () => {
     if(isError) return <ErrorDataLoading/>;
 
     return (
-        <div className='flex flex-col gap-8 p-8 justify-between max-w-[1400px] grow'>
+        <div className='flex flex-col gap-8 p-8 justify-between max-w-[1400px] h-full'>
 
             <div className='flex flex-col gap-4'>
                 <Button
